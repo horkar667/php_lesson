@@ -1,4 +1,7 @@
-<?php require_once('data.php') ?>
+<?php
+  require_once('data.php');
+  require_once('menu.php');
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,13 +14,21 @@
   <body>
     <div class="menu-wrapper container">
       <h1 class="logo">Cafe</h1>
+      <h3>メニュー<?php echo Menu::getCount() ?></h3>
       <form method="post" action="confirm.php">
         <div class="menu-items">
           <?php foreach($menus as $menu): ?>
             <div class="menu-item">
               <img src="<?php echo $menu->getImage() ?>" class="menu-item-image">
               <h3 class="menu-item-name"><?php echo $menu->getName() ?></h3>
-              <p class="price">¥<?php echo $menu->getTaxIncIudedPrice() ?>（税込）</p>
+              <?php if($menu instanceof Drink): ?>
+                <p class="menu-item-name"><?php echo $menu->getType() ?></p>
+              <?php else: ?>
+                <?php for($i = 0; $i < $menu->getSpiciness(); $i++): ?>
+                  <img src="https://s3-ap-northeast-1.amazonaws.com/prigate/shared/images/lesson/php/chilli.png" class="icon-spiciness">
+                <?php endfor ?>
+              <?php endif ?>
+              <p class="price">¥<?php echo $menu->getTaxIncludedPrice() ?>（税込）</p>
               <input type="text" value="0" name="<?php echo $menu->getName() ?>">
               <span>個</span>
             </div>

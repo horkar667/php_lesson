@@ -38,7 +38,17 @@
             <h4>レビュー一覧</h4>
           </div>
           <?php foreach($menuReviews as $menuReview): ?>
+            <?php $user = $menuReview->getUser($users) ?>
             <div class="review-list-item">
+              <div class="review-user">
+                <?php if($user->getGender() == 'male'): ?>
+                  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/male.png" class="icon-user">
+                <?php else: ?>
+                  <img src="https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/php/female.png" class="icon-user">
+                <?php endif ?>
+                <p><?php echo $user->getId() ?></p>
+                <p><?php echo $user->getName() ?></p>
+              </div>
               <p><?php echo $menuReview->getBody() ?></p>
             </div>
           <?php endforeach ?>

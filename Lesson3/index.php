@@ -38,6 +38,7 @@
             </div>
           <?php endforeach ?>
         </div>
+        <input type="submit" value="注文する">
       </form>
     </div>
   </body>

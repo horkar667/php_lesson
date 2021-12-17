@@ -1,7 +1,7 @@
 <?php
 
   $scores = array(
-    [1, 5],
+    [3, 5],
     [2, 5],
     [3, 2],
     [5, 5],
@@ -9,8 +9,8 @@
     [2, 7],
     [5, 0],
     [3, 5],
-    [4, 5],
-    [10, 10, 1]
+    [4, 6],
+    [5, 5, 2]
   );
   $strike = 0;
   $spare = 0;
@@ -25,7 +25,8 @@
       if($score[0] == 10){
         $strike = 1;
         $spare = 0;
-        break;
+        echo $maxScore."\n";
+        continue;
       }
 
       if($score[1] == 10 - $score[0]) {
@@ -55,8 +56,10 @@
       }
       if($score[1] == 10 - $score[0]) {
         $spare = 1;
+      } elseif($score[1] == 10) {
+        $strike = 1;
       } else {
-        break;
+        continue;
       }
 
       if($strike == 1 || $spare == 1) {
@@ -64,11 +67,7 @@
       } else {
         $maxScore += $score[2];
       }
-
-
-
-
     }
+    echo $maxScore."\n";
   }
-
 ?>

@@ -10,13 +10,16 @@
   <body>
     <?php for($i = 0; $i < 10; $i++): ?>
       <?php
-        $score = array($_POST[$i], $_POST[$i."s"]);
-        $scores[] = $score.$i[0];
+        if($i == 9) {
+          ${"score".$i} = array($_POST[$i], $_POST["s".$i], $_POST["t".$i]);
+        } else {
+          ${"score".$i} = array($_POST[$i], $_POST["s".$i]);
+        }
+        $scores[] = ${"score".$i};
       ?>
     <?php endfor ?>
     <div>
-      <!-- < echo Lesson6::getScore($scores); ?> -->
-      <?php echo $score ?>
+      <?php echo Lesson6::getScore($scores); ?>
     </div>
   </body>
 </html>

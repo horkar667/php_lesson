@@ -16,7 +16,6 @@ class Lesson6{
         if($score[0] == 10){
           $strike = 1;
           $spare = 0;
-          echo $maxScore."\n";
           continue;
         }
         

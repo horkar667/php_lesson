@@ -16,6 +16,7 @@ class Lesson6{
         if($score[0] == 10){
           $strike = 1;
           $spare = 0;
+          echo $maxScore."\n";
           continue;
         }
         
@@ -49,6 +50,7 @@ class Lesson6{
         } elseif($score[1] == 10) {
           $strike = 1;
         } else {
+          echo $maxScore."\n";
           continue;
         }
         

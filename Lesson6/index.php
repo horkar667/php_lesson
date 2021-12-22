@@ -11,11 +11,11 @@
       <form method="post" action="score.php">
         <?php for($i = 0; $i < 10; $i++): ?>
           <?php if($i == 9): ?>
-            <input type="text" value="5" name="<?php echo $i ?>">
+            <input type="text" value="0" name="<?php echo $i ?>">
             <input type="text" value="0" name="<?php echo "s".$i ?>">
-            <input type="text" value="3" name="<?php echo "t".$i ?>">
+            <input type="text" value="0" name="<?php echo "t".$i ?>">
           <?php else: ?>
-            <input type="text" value="5" name="<?php echo $i ?>">
+            <input type="text" value="0" name="<?php echo $i ?>">
             <input type="text" value="0" name="<?php echo "s".$i ?>">
           <?php endif ?>
         <?php endfor ?>
